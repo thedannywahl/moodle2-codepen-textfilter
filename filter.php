@@ -93,7 +93,7 @@ class filter_codepen extends moodle_text_filter {
             self::$globalconfig = get_config('filter_codepen');
         }
     }
-
+    
     /**
      * Given some text this function converts any URLs it finds into embedded codepens.
      *
@@ -122,8 +122,16 @@ class filter_codepen extends moodle_text_filter {
         } else {
             $regex = '#' . preg_replace(array('\pLl', '\PL'), 'a-z', $regex) . '#i';
         }
+        
+        //Get the height from the settings page
+        $height = get_config('filter_codepen', 'height');
+        
+        //Make sure that the value is set or set the default
+        if (($height === 0) || (empty($height))) {
+	        $height = 268;
+        }
 
-       	$text = preg_replace($regex, '<p data-height="268" data-theme-id="0" data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">See the pen <a href="$0">$0</a> by (<a href="http://$3$4">@$4</a>) on <a href="http://$3">CodePen</a></p>
+       	$text = preg_replace($regex, '<p data-height="' . $height . '" data-theme-id="0" data-slug-hash="$6" data-user="$4" data-default-tab="result" class="codepen">See the pen <a href="$0">$0</a> by (<a href="http://$3$4">@$4</a>) on <a href="http://$3">CodePen</a></p>
 <script async src="//codepen.io/assets/embed/ei.js"></script>', $text);
 
 		if (!empty($ignoretags)) {
