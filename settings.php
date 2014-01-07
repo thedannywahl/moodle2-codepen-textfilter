@@ -37,10 +37,14 @@ if ($ADMIN->fulltree) {
             get_string('settingformats_desc', 'filter_codepen'),
             array(FORMAT_HTML => 1, FORMAT_MARKDOWN => 1, FORMAT_MOODLE => 1), format_text_menu()));
             
-    $settings->add(new admin_setting_configtext('filter_codepen/height',
-    		get_string('settingheight', 'filter_codepen'),
-    		get_string('settingheight_desc', 'filter_codepen'),
-    		268,
-    		PARAM_INT,
-    		3));
+    // $settings->add(new admin_setting_configtext('filter_codepen/height',
+    //		get_string('settingheight', 'filter_codepen'),
+    //		get_string('settingheight_desc', 'filter_codepen'),
+    //		'268',
+    //		PARAM_INT,
+    //		3));
+    
+    $settings->add(new admin_setting_heading('filter_codepen/credits',
+    		get_string('settingcredits', 'filter_codepen'),
+    		get_string('settingcredits_desc', 'filter_codepen')));
 }
