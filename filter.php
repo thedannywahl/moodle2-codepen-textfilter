@@ -46,7 +46,7 @@ class filter_codepen extends moodle_text_filter {
     public function filter($text, array $options = array()) {
         if (!isset($options['originalformat'])) {
             // if the format is not specified, we are probably called by {@see format_string()}
-            // in that case, it would be dangerous to replace URL with the link because it could
+            // in that case, it would be dangerous to replace URL with the pen because it could
             // be stripped. therefore, we do nothing
             return $text;
         }
@@ -99,13 +99,6 @@ class filter_codepen extends moodle_text_filter {
      *
      * @param string $text Passed in by reference. The string to be searched for urls.
      */
-    
-    /**
-     * Replace emoticons found in the text with their images
-     *
-     * @param string $text to modify
-     * @return void
-     */
     protected function convert_urls_into_codepens(&$text) {
         //I've added img tags to this list of tags to ignore.
         //See MDL-21168 for more info. A better way to ignore tags whether or not
@@ -134,7 +127,7 @@ class filter_codepen extends moodle_text_filter {
 <script async src="//codepen.io/assets/embed/ei.js"></script>', $text);
 
 		if (!empty($ignoretags)) {
-            $ignoretags = array_reverse($ignoretags); /// Reversed so "progressive" str_replace() will solve some nesting problems.
+            $ignoretags = array_reverse($ignoretags); // Reversed so "progressive" str_replace() will solve some nesting problems.
             $text = str_replace(array_keys($ignoretags),$ignoretags,$text);
         }
 
