@@ -28,5 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->component = 'filter_codepen';	// Full name of the plugin (used for diagnostics)
 $plugin->version   = 2014010702;		// The current plugin version (Date: YYYYMMDDXX)
 $plugin->requires  = 2013111800;		// Requires this Moodle version
-$plugin->release   = '2.6.01';			// Human-friendly version name http://docs.moodle.org/dev/Releases
+$plugin->release   = '2.6.02';			// Human-friendly version name http://docs.moodle.org/dev/Releases
 $plugin->maturity  = MATURITY_STABLE;	// This version's maturity level
