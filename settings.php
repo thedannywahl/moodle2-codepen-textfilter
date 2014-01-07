@@ -28,8 +28,13 @@ defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
 
+    $settings->add(new admin_setting_heading('filter_codepen/info',
+    		get_string('settingheading', 'filter_codepen'),
+    		get_string('settingheading_info', 'filter_codepen')));
+    
     $settings->add(new admin_setting_configmulticheckbox('filter_codepen/formats',
             get_string('settingformats', 'filter_codepen'),
             get_string('settingformats_desc', 'filter_codepen'),
             array(FORMAT_HTML => 1, FORMAT_MARKDOWN => 1, FORMAT_MOODLE => 1), format_text_menu()));
+            
 }
